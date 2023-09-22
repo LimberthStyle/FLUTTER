@@ -1,12 +1,18 @@
 import 'dart:ffi';
+import 'dart:html';
 
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "$valuePeso",
+                    "${valuePeso.round()}",
                     style: TextStyle(fontSize: 40),
                   ),
                   Text(
@@ -72,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "$valueTalla",
+                    "${valueTalla.round()}",
                     style: TextStyle(fontSize: 40),
                   ),
                   Text(
@@ -93,6 +99,14 @@ class _HomePageState extends State<HomePage> {
                   setState(() {});
                 },
               ),
+              ElevatedButton(
+                onPressed: () {
+                  // Aquí es donde colocarías la lógica de tu cálculo.
+                  // Por ejemplo, podrías llamar a una función que realice el cálculo.
+                  //realizarCalculo();
+                },
+                child: Text('Calcular'),
+              )
             ],
           )),
     );
