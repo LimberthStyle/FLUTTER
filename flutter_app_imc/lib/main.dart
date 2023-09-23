@@ -1,6 +1,3 @@
-import 'dart:ffi';
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -31,6 +28,31 @@ class _HomePageState extends State<HomePage> {
   bool isTitleBold = true;
   double valuePeso = 0;
   double valueTalla = 0;
+  String resultado = '';
+  String categoria = '';
+  String mensaje = '';
+  int numero = 0;
+  void imc() {
+    double imc = valuePeso / ((valueTalla / 100) * (valueTalla / 100));
+
+    setState(() {
+      numero = imc.toInt();
+      if (imc < 18.5) {
+        resultado = 'Bajo de peso';
+
+        mensaje = 'Debes entrar en volumen';
+      } else if (imc < 24.9) {
+        resultado = 'Normal';
+
+        mensaje = 'Estas bien, pero sigue alimentandote bien';
+      } else {
+        resultado = 'SOBREPESO';
+
+        mensaje = 'Debes de entrar a una dieta, y hacer ejercicio físico';
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +69,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 "BIENVENIDO, SELECCIONA TU PESO Y ALTURA",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -100,13 +122,32 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
               ElevatedButton(
-                onPressed: () {
-                  // Aquí es donde colocarías la lógica de tu cálculo.
-                  // Por ejemplo, podrías llamar a una función que realice el cálculo.
-                  //realizarCalculo();
-                },
-                child: Text('Calcular'),
-              )
+                onPressed: imc,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset('assets/img/Boton.png',
+                        width: 30, height: 30), // Imagen
+                    SizedBox(width: 10), // Espacio entre la imagen y el texto
+                    Text('Calcular'), // Texto
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 10),
+                    Text(
+                      'Resultado: ',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
             ],
           )),
     );
