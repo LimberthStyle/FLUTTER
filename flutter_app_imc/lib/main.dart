@@ -28,27 +28,29 @@ class _HomePageState extends State<HomePage> {
   bool isTitleBold = true;
   double valuePeso = 0;
   double valueTalla = 0;
+
   String resultado = '';
-  String categoria = '';
-  String mensaje = '';
-  int numero = 0;
+  String imagen = '';
+  String consejo = '';
+  int num = 0;
+
   void imc() {
     double imc = valuePeso / ((valueTalla / 100) * (valueTalla / 100));
 
     setState(() {
-      numero = imc.toInt();
+      num = imc.toInt();
       if (imc < 18.5) {
         resultado = 'Bajo de peso';
-
-        mensaje = 'Debes entrar en volumen';
+        imagen = 'BajoPeso';
+        consejo = 'Debes entrar en volumen';
       } else if (imc < 24.9) {
         resultado = 'Normal';
-
-        mensaje = 'Estas bien, pero sigue alimentandote bien';
+        imagen = 'Normal';
+        consejo = 'Estas bien, pero sigue alimentandote bien';
       } else {
         resultado = 'SOBREPESO';
-
-        mensaje = 'Debes de entrar a una dieta, y hacer ejercicio físico';
+        imagen = 'SobrePeso';
+        consejo = 'Debes de entrar a una dieta, y hacer ejercicio físico';
       }
     });
   }
@@ -147,6 +149,31 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
+              ),
+              SizedBox(height: 20),
+              if (imagen.isNotEmpty)
+                Image.asset(
+                  'assets/img/$imagen.jpg',
+                  width: 100,
+                  height: 100,
+                ),
+              if (num > 0)
+                Text(
+                  '$num',
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.pink),
+                ),
+              SizedBox(height: 5),
+              Text(
+                '$resultado',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 5),
+              Text(
+                '$consejo',
+                style: TextStyle(fontSize: 15),
               ),
             ],
           )),
