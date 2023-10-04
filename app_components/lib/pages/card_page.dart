@@ -14,8 +14,6 @@ class CardPage extends StatelessWidget {
         children: [
           //Card 1
           Container(
-            margin: const EdgeInsets.all(20.0),
-            padding: const EdgeInsets.all(14.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(18.0),
@@ -26,16 +24,18 @@ class CardPage extends StatelessWidget {
                   blurRadius: 12.0,
                 ),
                 BoxShadow(
-                  color: Colors.white.withOpacity(0.6),
-                  offset: Offset(-4, -4),
-                  blurRadius: 6.0,
+                  color: Colors.white,
+                  offset: Offset(-5, -5),
+                  blurRadius: 12.0,
                 ),
               ],
             ),
+            padding: EdgeInsets.all(12.0),
+            margin: EdgeInsets.all(10.0),
             child: Column(
               children: [
                 Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras sed felis eget velit. In egestas erat imperdiet sed euismod nisi porta. Tempus imperdiet nulla malesuada pellentesque elit eget. Eu augue ut lectus arcu bibendum. Suspendisse faucibus interdum posuere lorem. In hac habitasse platea dictumst. Phasellus vestibulum lorem sed risus ultricies. Sodales ut etiam sit amet nisl purus. Enim ut tellus elementum sagittis. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Vulputate mi sit amet mauris commodo quis imperdiet. Purus gravida quis blandit turpis cursus in hac habitasse platea. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Sit amet nulla facilisi morbi. Justo laoreet sit amet cursus sit amet. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris. Nunc scelerisque viverra mauris in aliquam sem.",
+                  "Maecenas velit enim, sollicitudin ac neque eu, varius finibus arcu. Proin eu feugiat ligula. Pellentesque pharetra vitae lectus sed consequat. Fusce sollicitudin lobortis lacus id accumsan. Nam efficitur dolor est, at suscipit odio pellentesque at. Vestibulum ornare, purus at eleifend auctor, dui justo congue purus, sit amet vulputate dui eros vitae tortor. Sed in posuere felis. Cras eu ornare nisi, vitae tincidunt odio. Etiam condimentum hendrerit sapien non ultrices.",
                   textAlign: TextAlign.center,
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
@@ -44,9 +44,6 @@ class CardPage extends StatelessWidget {
                   margin: EdgeInsets.symmetric(
                     vertical: 12.0,
                   ),
-                  width: double.infinity,
-                  height: 40.0,
-                  alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: Colors.deepPurple,
                     borderRadius: BorderRadius.circular(30.0),
@@ -58,6 +55,9 @@ class CardPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  height: 40.0,
+                  width: double.infinity,
+                  alignment: Alignment.center,
                   child: Text(
                     "Follow me",
                     style: TextStyle(
@@ -66,15 +66,12 @@ class CardPage extends StatelessWidget {
                       fontSize: 16.0,
                     ),
                   ),
-                ),
+                )
               ],
             ),
           ),
-
-          //Card 2
+          // Card 2
           Container(
-            margin: const EdgeInsets.all(20.0),
-            padding: const EdgeInsets.all(14.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(18.0),
@@ -85,23 +82,25 @@ class CardPage extends StatelessWidget {
                   blurRadius: 12.0,
                 ),
                 BoxShadow(
-                  color: Colors.white.withOpacity(0.6),
-                  offset: Offset(-4, -4),
-                  blurRadius: 6.0,
+                  color: Colors.white,
+                  offset: Offset(-5, -5),
+                  blurRadius: 12.0,
                 ),
               ],
             ),
+            padding: EdgeInsets.all(12.0),
+            margin: EdgeInsets.all(10.0),
             child: Row(
               children: [
                 Image.asset(
-                  "assets/images/imagen1x.png",
+                  "assets/images/imagex1.png",
                   height: 120.0,
                 ),
                 Expanded(
                   child: Column(
                     children: [
                       Text(
-                        "Fiorela Guadalupe de las Nieves Azules",
+                        "Fiorela Guadalupe de la nieves azules",
                         style: TextStyle(
                           color: Colors.black87,
                           fontSize: 16.0,
@@ -112,14 +111,9 @@ class CardPage extends StatelessWidget {
                         height: 7.0,
                       ),
                       Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras sed felis eget velit. In egestas erat imperdiet sed euismod nisi porta. Tempus imperdiet nulla malesuada pellentesque elit eget. Eu augue ut lectus arcu bibendum. Suspendisse faucibus interdum posuere lorem. In hac habitasse platea dictumst. Phasellus vestibulum lorem sed risus ultricies. Sodales ut etiam sit amet nisl purus. Enim ut tellus elementum sagittis.",
-                        overflow: TextOverflow.ellipsis,
+                        "Maecenas velit enim, sollicitudin ac neque eu, varius finibus arcu. Proin eu feugiat ligula. Pellentesque pharetra vitae lectus sed consequat. Fusce sollicitudin lobortis lacus id accumsan. Nam efficitur dolor est, at suscipit odio pellentesque at. Vestibulum ornare, purus at eleifend auctor, dui justo congue purus, sit amet vulputate dui eros vitae tortor. ",
                         maxLines: 4,
-                        style: TextStyle(
-                          color: Colors.black45,
-                          //fontSize: 16.0,
-                          //fontWeight: FontWeight.bold,
-                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
@@ -127,11 +121,8 @@ class CardPage extends StatelessWidget {
               ],
             ),
           ),
-
-          // Card 3
+          //Card 3
           Container(
-            margin: const EdgeInsets.all(20.0),
-            padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(18.0),
@@ -142,34 +133,36 @@ class CardPage extends StatelessWidget {
                   blurRadius: 12.0,
                 ),
                 BoxShadow(
-                  color: Colors.white.withOpacity(0.6),
-                  offset: Offset(-4, -4),
-                  blurRadius: 6.0,
+                  color: Colors.white,
+                  offset: Offset(-5, -5),
+                  blurRadius: 12.0,
                 ),
               ],
             ),
+            padding: EdgeInsets.all(12.0),
+            margin: EdgeInsets.all(10.0),
             child: Row(
               children: [
                 Expanded(
                   child: Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras sed felis eget velit. In egestas erat imperdiet sed euismod nisi porta. Tempus imperdiet nulla malesuada pellentesque elit eget. Eu augue ut lectus arcu bibendum. Suspendisse faucibus interdum posuere lorem. In hac habitasse platea dictumst. Phasellus vestibulum lorem sed risus ultricies. Sodales ut etiam sit amet nisl purus. Enim ut tellus elementum sagittis. ",
+                    "Maecenas velit enim, sollicitudin ac neque eu, varius finibus arcu. Proin eu feugiat ligula. Pellentesque pharetra vitae lectus sed consequat. Fusce sollicitudin lobortis lacus id accumsan. Nam efficitur dolor est, at suscipit odio pellentesque at. Vestibulum ornare, purus at eleifend auctor, dui justo congue purus, sit amet vulputate dui eros vitae tortor. Sed in posuere felis. Cras eu ornare nisi, vitae tincidunt odio. Etiam condimentum hendrerit sapien non ultrices.",
                     maxLines: 6,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 SizedBox(
-                  width: 5.0,
+                  width: 15,
                 ),
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0),
+                  borderRadius: BorderRadius.circular(15.0),
                   child: Image.network(
-                    "https://images.pexels.com/photos/6763114/pexels-photo-6763114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                    height: 120.0,
+                    "https://images.pexels.com/photos/1058771/pexels-photo-1058771.jpeg",
+                    height: 100.0,
                   ),
                 ),
               ],
             ),
-          ),
+          )
         ],
       ),
     );
