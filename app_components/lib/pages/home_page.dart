@@ -1,8 +1,9 @@
+import 'package:app_components/pages/alert_page.dart';
+import 'package:app_components/pages/avatar_page.dart';
+import 'package:app_components/pages/card_page.dart';
+import 'package:app_components/pages/input_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'alert_page.dart';
-import 'avatar_page.dart';
-import 'card_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,7 +15,6 @@ class HomePage extends StatelessWidget {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-            //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(
                 height: 20.0,
@@ -23,49 +23,50 @@ class HomePage extends StatelessWidget {
                 height: 200,
                 width: 200,
                 decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      offset: Offset(8, 8),
-                      blurRadius: 10,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(20.0),
+                  //color: Colors.redAccent,
                   image: DecorationImage(
                     image: NetworkImage(
                         "https://malditopaparazzo.com.ar/wp-content/uploads/2021/05/David-Chicle-768x770.jpg"),
                   ),
+                  borderRadius: BorderRadius.circular(20.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      offset: Offset(5, 5),
+                      blurRadius: 12.0,
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 20.0,
               ),
               Text(
                 "Flutter Components",
                 style: GoogleFonts.poppins(
-                  fontSize: 22.0,
+                  fontSize: 20.0,
                   letterSpacing: 1,
-                  //fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
-                width: 200.0,
+                width: 160.0,
                 child: Divider(),
               ),
-              const SizedBox(
-                height: 10.0,
+              ItemComponentWidget(
+                titulo: "Avatar",
+                irPagina: AvatarPage(),
               ),
               ItemComponentWidget(
-                title: "Avatar",
-                toPage: AvatarPage(),
+                titulo: "Alert",
+                irPagina: AlertPage(),
               ),
               ItemComponentWidget(
-                title: "Alert",
-                toPage: AlertPage(),
+                titulo: "Card",
+                irPagina: CardPage(),
               ),
               ItemComponentWidget(
-                title: "Card",
-                toPage: CardPage(),
+                titulo: "Input",
+                irPagina: InputPage(),
               ),
             ],
           ),
@@ -76,52 +77,48 @@ class HomePage extends StatelessWidget {
 }
 
 class ItemComponentWidget extends StatelessWidget {
-  String title;
-  Widget toPage;
+  String titulo;
+  Widget irPagina;
 
-  ItemComponentWidget({required this.title, required this.toPage});
+  ItemComponentWidget({required this.titulo, required this.irPagina});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-        horizontal: 15.0,
-        vertical: 15.0,
+        horizontal: 12.0,
+        vertical: 5.0,
       ),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(
-          10.0,
-        ),
+        borderRadius: BorderRadius.circular(15.0),
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              blurRadius: 12,
-              offset: Offset(5, 5)),
+            color: Colors.black.withOpacity(0.5),
+            offset: Offset(5, 5),
+            blurRadius: 12.0,
+          ),
         ],
       ),
       child: ListTile(
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => toPage),
+            MaterialPageRoute(
+              builder: (context) => irPagina,
+            ),
           );
         },
+        title: Text(
+          titulo,
+          style: GoogleFonts.poppins(),
+        ),
+        subtitle: Text("Ir a detalle del $titulo"),
         leading: Icon(
           Icons.check_circle_outline,
           color: Colors.black,
         ),
-        title: Text(
-          title,
-          style: GoogleFonts.poppins(),
-        ),
-        subtitle: Text(
-          "ir al detalle de $title",
-          style: GoogleFonts.poppins(),
-        ),
-        trailing: Icon(
-          Icons.chevron_right,
-        ),
+        trailing: Icon(Icons.chevron_right),
       ),
     );
   }
