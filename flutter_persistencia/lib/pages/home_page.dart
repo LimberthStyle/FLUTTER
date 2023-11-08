@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import '../widgets/my_drawer_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   bool isDarkMode = false;
+
+  int gender = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -51,29 +58,27 @@ class HomePage extends StatelessWidget {
                 ),
                 value: isDarkMode,
                 onChanged: (bool value) {}),
-            const Text(
+            Text(
               "Género:",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const ListTile(
-              leading: Icon(
-                Icons.circle_outlined,
-                size: 20,
-              ),
-              title: Text(
-                "Masculino",
-                style: TextStyle(fontSize: 18),
-              ),
+            RadioListTile(
+              title: Text("Masculino"),
+              value: 1,
+              groupValue: gender,
+              onChanged: (int? value) {
+                gender = value!;
+                setState(() {});
+              },
             ),
-            const ListTile(
-              leading: Icon(
-                Icons.circle_outlined,
-                size: 20,
-              ),
-              title: Text(
-                "Femenino",
-                style: TextStyle(fontSize: 18),
-              ),
+            RadioListTile(
+              title: Text("Femenino"),
+              value: 2,
+              groupValue: gender,
+              onChanged: (int? value) {
+                gender = value!;
+                setState(() {});
+              },
             ),
             SizedBox(
               height: 30,
